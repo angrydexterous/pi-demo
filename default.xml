@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <notice>
+        Done syncing. If this is your first time run the following:
+
+        export TEMPLATECONF=meta-codercamppi/conf
+        source poky/oe-init-build-env
+    </notice>
+
+    <!-- remote repo definitions -->
+    <remote name="yocto" fetch="git://git.yoctoproject.org" />
+    <remote name="oe" fetch="git://git.openembedded.org" />
+
+    <!-- list of repos we want fetched -->
+    <!--
+         "name": git repo name on the hosting server
+         "remote": the remote host above (if not the default)
+         "revision": commitish to checkout (if not the default)
+         "path": directory where git repo gets cloned to
+    -->
+    <project name="poky" remote="yocto"
+        revision="fido" />
+    <project name="meta-openembedded" remote="oe"
+        path="poky/meta-openembedded"
+        revision="fido" />
+    <project name="meta-raspberrypi" remote="yocto"
+        path="poky/meta-raspberrypi"
+        revision="fido" />
+</manifest>
