@@ -10,6 +10,7 @@
     <!-- remote repo definitions -->
     <remote name="yocto" fetch="git://git.yoctoproject.org" />
     <remote name="oe" fetch="git://git.openembedded.org" />
+    <remote name="github" fetch="https://github.com/angrydexterous" />
 
     <!-- list of repos we want fetched -->
     <!--
@@ -26,4 +27,7 @@
     <project name="meta-raspberrypi" remote="yocto"
         path="poky/meta-raspberrypi"
         revision="fido" />
+    <project name="meta-codercamppi" remote="github"
+        path="poky/meta-codercamppi"
+        revision="master" />
 </manifest>
