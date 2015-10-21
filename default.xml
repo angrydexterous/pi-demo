@@ -20,14 +20,11 @@
          "path": directory where git repo gets cloned to
     -->
     <project name="poky" remote="yocto"
-        revision="dizzy" />
+        revision="fido" />
     <project name="meta-openembedded" remote="oe"
         path="poky/meta-openembedded"
-        revision="dizzy" />
+        revision="fido" />
     <project name="meta-raspberrypi" remote="yocto"
         path="poky/meta-raspberrypi"
-        revision="dizzy" />
-    <project name="meta-codercamppi" remote="github"
-        path="poky/meta-codercamppi"
-        revision="master" />
+        revision="fido" />
 </manifest>
