@@ -29,5 +29,5 @@
         revision="fido" />
     <project name="meta-cloud-services" remote="yocto"
         path="poky/meta-cloud-services"
-        revision="fido" />
+        revision="fido-kilo" />
 </manifest>
