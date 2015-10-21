@@ -1,0 +1,19 @@
+* Serial Adapter
+ground - blue
+tx - red
+rx - green
+
+pin 6 8 10 , gnd, tx, rx
+
+* Boot
+usb start
+
+
+setenv bootargs "dma.dmachans=0x7f35 bcm2708_fb.fbwidth=656 bcm2708_fb.fbheight=416 bcm2708.boardrev=0x10 bcm2708.serial=0x11fa4d79 smsc95xx.macaddr=B8:27:EB:FA:4D:79 bcm2708_fb.fbswap=1 bcm2708.disk_led_gpio=47 bcm2708.disk_led_active_low=0 sdhci-bcm2708.emmc_clock_freq=250000000 vc_mem.mem_base=0x1fa00000 vc_mem.mem_size=0x20000000 dwc_otg.lpm_enable=0 console=ttyAMA0,115200 smsc95xx.turbo_mode=N ip=dhcp root=/dev/nfs nfsroot=10.42.0.1:/tftpboot/nfsroot,v3,tcp rw"
+
+setenv fdt_addr_r 0x100
+setenv kernel_addr_r 0x00200000
+setenv serverip 10.42.0.1
+dhcp 0x00200000 uImage
+tftp 0x100 uImage-bcm2708-rpi-b.dtb
+bootm 0x00200000 - 0x100
