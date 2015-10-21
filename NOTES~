@@ -17,10 +17,5 @@ tftp 0x100 uImage-bcm2708-rpi-b.dtb
 setenv bootargs "earlyprintk console=tty0 console=ttyAMA0,115200 root=/dev/nfs nfsroot=10.42.0.1:/tftpboot/nfsroot,v3 rw rootwait ip=dhcp"
 bootm 0x00200000 - 0x100
 
-* dropbear
-Lets add it in
-
-then curl 
-
 
 

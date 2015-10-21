@@ -27,4 +27,7 @@
     <project name="meta-raspberrypi" remote="yocto"
         path="poky/meta-raspberrypi"
         revision="fido" />
+    <project name="meta-cloud-services" remote="yocto"
+        path="poky/meta-cloud-services"
+        revision="fido" />
 </manifest>
