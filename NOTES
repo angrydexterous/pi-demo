@@ -1,3 +1,5 @@
+rpi-hwup-image
+
 * Serial Adapter
 ground - blue
 tx - red
@@ -16,11 +18,39 @@ dhcp 0x00200000 uImage
 tftp 0x100 uImage-bcm2708-rpi-b.dtb
 setenv bootargs "earlyprintk console=tty0 console=ttyAMA0,115200 root=/dev/nfs nfsroot=10.42.0.1:/tftpboot/nfsroot,v3 rw rootwait ip=dhcp"
 bootm 0x00200000 - 0x100
+setenv bootargs "earlyprintk console=tty0 console=ttyAMA0,115200 root=/dev/nfs nfsroot=10.42.0.1:/tftpboot/nfsroot,v3 rw rootwait ip=dhcp"
+setenv bootcmd "usb start; dhcp 0x00200000 uImage; tftp 0x100 uImage-bcm2708-rpi-b.dtb; bootm 0x00200000 - 0x100"
 
 * dropbear
 Lets add it in
 
-then curl 
+
+
+then nginx - takes a new layer
+
+Salt Stack
+IMAGE_INSTALL += " salt-minion python-modules python-threading python-multiprocessing python-subprocess python-contextlib python-distutils python-json python-m2crypto python-pycrypto openssl python-misc"
+
+poky/meta-openembedded/meta-oe \
+poky/meta-openembedded/meta-python \
+poky/meta-openembedded/meta-ruby \
+poky/meta-openembedded/meta-networking \
+poky/meta-cloud-services/meta-openstack \
+
+PREFERRED_VERSION_python-tornado = "4.2.1"
+
+salt '*' test.ping
+salt '*' test.fib 28
+salt '*' status.cpuinfo
+salt '*' status.meminfo
+salt '*' status.diskusage 
+
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+
+
+
+
 
 
 
